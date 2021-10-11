@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useCallback } from "react";
 import {
   StyleSheet,
   View,
@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { FAB, List } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation,useFocusEffect } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Swipeout from "react-native-swipeout";
@@ -49,9 +49,12 @@ const ProductList = () => {
     setModalVisible(!modalVisible);
   };
 
-  useEffect(() => {
-    getProduct();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getProduct();
+    }, []),
+  );
+
 
   return (
     <>
