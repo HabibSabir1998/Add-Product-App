@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 52,
     paddingVertical: 10,
     borderRadius: 8,
-    // width: "100%",
     borderWidth: 1,
   },
   buttonText: {
